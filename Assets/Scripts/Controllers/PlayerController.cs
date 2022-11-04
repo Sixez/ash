@@ -8,8 +8,8 @@ using UnityEngine.U2D.Animation;
 public class PlayerController : MonoBehaviour
 {
 	public GameObject player;
-	public GameObject sprite { get { return player.transform.Find("Sprite").gameObject; } }
-	public Animator animator { get { return player.GetComponent<Animator>(); } }
+	public GameObject Sprite { get { return player.transform.Find("Sprite").gameObject; } }
+	public Animator Animator { get { return player.GetComponent<Animator>(); } }
 
 	[SerializeField] private float vel;
 
@@ -18,7 +18,7 @@ public class PlayerController : MonoBehaviour
 	private Vector2 movement = Vector2.zero;
 	public Vector2 Movement { get { return movement; } }
 
-	public Character character;
+	public Characters character;
 
 	void Update()
 	{
@@ -32,7 +32,7 @@ public class PlayerController : MonoBehaviour
 		Move(newPosition);
 	}
 
-	void HandleKeyboard()
+	private void HandleKeyboard()
 	{
 		if (Input.GetKeyDown(KeyCode.A)) movement.x += -1;
 		if (Input.GetKey(KeyCode.A)) direction.Set(-1, 0);
@@ -52,38 +52,32 @@ public class PlayerController : MonoBehaviour
 			
 	}
 
-	bool IsMoving()
-	{
-		return !movement.Equals(Vector2.zero);
-	}
+	public bool IsMoving() => !movement.Equals(Vector2.zero);
 
-	void Move(Vector2 newPosition)
-	{
-		player.transform.position = newPosition;
-	}
+	protected internal void Move(Vector2 newPosition) => player.transform.position = newPosition;
 
-	void AnimateWalk()
+	protected void AnimateWalk()
 	{
-		animator.speed = Math.Max(vel, 0.1f);
+		Animator.speed = Math.Max(vel, 0.1f);
 		switch (direction)
 		{
 			case Vector2 v when v.Equals(Vector2.right):
-				animator.Play(IsMoving() ? "Walk Right" : "Stand");
+				Animator.Play(IsMoving() ? "Walk Right" : "Stand");
 				break;
 			case Vector2 v when v.Equals(Vector2.up):
-				animator.Play(IsMoving() ? "Walk Back" : "Stand");
+				Animator.Play(IsMoving() ? "Walk Back" : "Stand");
 				break;
 			case Vector2 v when v.Equals(Vector2.down):
-				animator.Play(IsMoving() ? "Walk Front" : "Stand");
+				Animator.Play(IsMoving() ? "Walk Front" : "Stand");
 				break;
 			case Vector2 v when v.Equals(Vector2.left):
-				animator.Play(IsMoving() ? "Walk Left" : "Stand");
+				Animator.Play(IsMoving() ? "Walk Left" : "Stand");
 				break;
 		}
 	}
 }
 
-public enum Character
+public enum Characters
 {
 	Wizard,
 	Priest

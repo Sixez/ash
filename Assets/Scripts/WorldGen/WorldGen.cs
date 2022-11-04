@@ -10,7 +10,7 @@ public class WorldGen : MonoBehaviour
     public GameObject tilegridPrefab;
     public GameObject tilemapPrefab;
 
-    void Awake()
+    internal void Generate()
     {
         GameObject tilegrid = Instantiate(tilegridPrefab);
         GameObject tilemap = Instantiate(tilemapPrefab);

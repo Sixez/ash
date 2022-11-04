@@ -8,8 +8,8 @@ public class MovementAnimationController : MonoBehaviour
 {
 	public GameObject player;
 	private PlayerController playerController { get { return player.GetComponent<PlayerController>(); } }
-	private SpriteRenderer spriteRenderer { get { return playerController.sprite.GetComponent<SpriteRenderer>(); } }
-	private SpriteResolver spriteResolver { get { return playerController.sprite.GetComponent<SpriteResolver>(); } }
+	private SpriteRenderer spriteRenderer { get { return playerController.Sprite.GetComponent<SpriteRenderer>(); } }
+	private SpriteResolver spriteResolver { get { return playerController.Sprite.GetComponent<SpriteResolver>(); } }
 
 	private void UpdateSprite(string spriteName)
 	{

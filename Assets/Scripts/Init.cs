@@ -8,11 +8,20 @@ public class Init : MonoBehaviour
 {
     public GameObject playerPrefab;
     public GameObject mainCamera;
+
     void Awake()
     {
+        MonoBehaviour[] Scripts = GetComponentsInChildren<MonoBehaviour>(true);
+        for (int i = 0; i < Scripts.Length; i++)
+        {
+            if (Scripts[i] is WorldGen)
+            {
+                ((WorldGen)Scripts[i]).Generate();
+            }
+        }
+
         Tilemap worldTileGrid = FindObjectOfType<Tilemap>();
         Vector2 spawnPos = Vector2.zero;
-        print(worldTileGrid.size);
         for (int i = 0; i < worldTileGrid.size.x; i++)
         {
             for (int j = 0; j < worldTileGrid.size.y; j++)
