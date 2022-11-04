@@ -56,19 +56,19 @@ AnimationClip:
     data: 
     objectReferenceParameter: {fileID: 11500000, guid: f26130e7a7277b94e9f0c0f11583f3de, type: 3}
     floatParameter: 0
-    intParameter: 20
+    intParameter: 10
     messageOptions: 0
   - time: 0.016666668
     functionName: OnMove
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
-    intParameter: 21
+    intParameter: 11
     messageOptions: 0
   - time: 0.033333335
     functionName: OnMove
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
-    intParameter: 20
+    intParameter: 10
     messageOptions: 0

@@ -21,15 +21,34 @@ public class MovementAnimationController : MonoBehaviour
 	{
 		switch (id)
 		{
+			case -1:
+				switch(playerController.Direction)
+				{
+					case Vector2 v when v.Equals(Vector2.right):
+						spriteRenderer.flipX = false;
+						UpdateSprite("std_0");
+						break;
+					case Vector2 v when v.Equals(Vector2.up):
+						UpdateSprite("back_0");
+						break;
+					case Vector2 v when v.Equals(Vector2.down):
+						UpdateSprite("front_0");
+						break;
+					case Vector2 v when v.Equals(Vector2.left):
+						spriteRenderer.flipX = true;
+						UpdateSprite("std_0");
+						break;
+				}
+				break;
 			case 0:
 				spriteRenderer.flipX = false;
 				UpdateSprite("std_0");
 				break;
 			case 1: UpdateSprite("std_1"); break;
-			case 10: UpdateSprite("front_1"); break;
-			case 11: UpdateSprite("front_2"); break;
-			case 20: UpdateSprite("back_1"); break;
-			case 21: UpdateSprite("back_2"); break;
+			case 10: UpdateSprite("back_1"); break;
+			case 11: UpdateSprite("back_2"); break;
+			case 20: UpdateSprite("front_1"); break;
+			case 21: UpdateSprite("front_2"); break;
 			case 30:
 				spriteRenderer.flipX = true;
 				UpdateSprite("std_0");

@@ -159,7 +159,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 2
-  m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
+  m_BackGroundColor: {r: 0, g: 0, b: 0, a: 0}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0
@@ -175,7 +175,7 @@ Camera:
   near clip plane: 0.3
   far clip plane: 1000
   field of view: 60
-  orthographic: 1
+  orthographic: 0
   orthographic size: 5
   m_Depth: -1
   m_CullingMask:
@@ -216,6 +216,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1889433022}
+  - component: {fileID: 1889433023}
   - component: {fileID: 1889433021}
   m_Layer: 0
   m_Name: loader
@@ -237,6 +238,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerPrefab: {fileID: 2817351350367250380, guid: b8460471afcb6c44cad88dee0c231166, type: 3}
+  mainCamera: {fileID: 519420028}
 --- !u!4 &1889433022
 Transform:
   m_ObjectHideFlags: 0
@@ -252,3 +254,17 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1889433023
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1889433020}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 98418537bd49dfc42bbcffb00ba310b6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tilegridPrefab: {fileID: 5498067319697094562, guid: 61bf32cb77140fd41b069aea8aa0cf59, type: 3}
+  tilemapPrefab: {fileID: 5498067319697094562, guid: 61bf32cb77140fd41b069aea8aa0cf59, type: 3}

@@ -9,12 +9,14 @@ public class PlayerController : MonoBehaviour
 {
 	public GameObject player;
 	public GameObject sprite { get { return player.transform.Find("Sprite").gameObject; } }
-	private Animator animator { get { return player.GetComponent<Animator>(); } }
+	public Animator animator { get { return player.GetComponent<Animator>(); } }
 
-	[SerializeField] private float vel = 0.01f;
+	[SerializeField] private float vel;
 
 	private Vector2 direction = Vector2.zero;
+	public Vector2 Direction { get { return direction; } }
 	private Vector2 movement = Vector2.zero;
+	public Vector2 Movement { get { return movement; } }
 
 	public Character character;
 
@@ -22,15 +24,12 @@ public class PlayerController : MonoBehaviour
 	{
 		HandleKeyboard();
 
-		if (IsMoving())
-		{
-			Vector2 newPosition = player.transform.position;
-			newPosition.x += movement.x * vel;
-			newPosition.y += movement.y * vel;
+		Vector2 newPosition = player.transform.position;
+		newPosition.x += movement.x * vel;
+		newPosition.y += movement.y * vel;
 
-			AnimateWalk();
-			Move(newPosition);
-		}
+		AnimateWalk();
+		Move(newPosition);
 	}
 
 	private void HandleKeyboard()
@@ -65,21 +64,20 @@ public class PlayerController : MonoBehaviour
 
 	private void AnimateWalk()
 	{
-		animator.speed = 1f / 10f;
-
-		switch(direction)
+		animator.speed = Math.Max(vel, 0.1f);
+		switch (direction)
 		{
 			case Vector2 v when v.Equals(Vector2.right):
-				animator.Play("Walk Right");
+				animator.Play(IsMoving() ? "Walk Right" : "Stand");
 				break;
 			case Vector2 v when v.Equals(Vector2.up):
-				animator.Play("Walk Back");
+				animator.Play(IsMoving() ? "Walk Back" : "Stand");
 				break;
 			case Vector2 v when v.Equals(Vector2.down):
-				animator.Play("Walk Front");
+				animator.Play(IsMoving() ? "Walk Front" : "Stand");
 				break;
 			case Vector2 v when v.Equals(Vector2.left):
-				animator.Play("Walk Left");
+				animator.Play(IsMoving() ? "Walk Left" : "Stand");
 				break;
 		}
 	}

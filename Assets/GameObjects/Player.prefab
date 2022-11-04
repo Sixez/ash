@@ -16,7 +16,7 @@ GameObject:
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
-  m_Icon: {fileID: 0}
+  m_Icon: {fileID: -5487077368411116049, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -29,7 +29,7 @@ Transform:
   m_GameObject: {fileID: 2817351350367250380}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.9, y: 0.9, z: 0.9}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 3483558777663272608}
@@ -63,7 +63,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 2817351350367250380}
-  vel: 0.01
+  vel: 0.03
+  character: 0
 --- !u!114 &3795944616779543097
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -171,7 +172,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -1298726313, guid: cd7dee745837d394d81a7001651b983b, type: 3}
+  m_Sprite: {fileID: -214099106, guid: cd7dee745837d394d81a7001651b983b, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
