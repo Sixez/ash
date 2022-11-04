@@ -32,7 +32,7 @@ public class PlayerController : MonoBehaviour
 		Move(newPosition);
 	}
 
-	private void HandleKeyboard()
+	void HandleKeyboard()
 	{
 		if (Input.GetKeyDown(KeyCode.A)) movement.x += -1;
 		if (Input.GetKey(KeyCode.A)) direction.Set(-1, 0);
@@ -52,17 +52,17 @@ public class PlayerController : MonoBehaviour
 			
 	}
 
-	private bool IsMoving()
+	bool IsMoving()
 	{
 		return !movement.Equals(Vector2.zero);
 	}
 
-	private void Move(Vector2 newPosition)
+	void Move(Vector2 newPosition)
 	{
 		player.transform.position = newPosition;
 	}
 
-	private void AnimateWalk()
+	void AnimateWalk()
 	{
 		animator.speed = Math.Max(vel, 0.1f);
 		switch (direction)
